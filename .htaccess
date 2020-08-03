@@ -1,0 +1,32 @@
+RewriteEngine On
+
+#RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+#RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+#RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+#RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+#RewriteCond %{HTTPS} =off
+#RewriteCond %{HTTP_HOST} !^localhost(.*)$ [NC]
+#RewriteCond %{HTTP_HOST} !^local.socialsociety\.(.*)$ [NC]
+#RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+#RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+#Login
+
+RewriteRule ^signin$ index.php?qpage=login\/login&loginview=1
+RewriteRule ^signup$ index.php?qpage=login\/signup&loginview=1
+RewriteRule ^logout$ index.php?qpage=login\/logout
+
+# HOME /TIMELINE
+RewriteRule ^timeline$ index.php?qpage=timeline\/home
+
+# PERFIL / MYSELF
+RewriteRule ^perfil$ index.php?qpage=timeline\/perfil
+
+# PERFIL / USER
+RewriteRule ^user/([a-zA-Z0-9_-]+)$ index.php?qpage=user\/perfil&id=$1 [QSA]
+ 
+#API
+RewriteRule ^controllers/api$ index.php?qpage=api&noview=1
+RewriteRule ^api/login$ index.php?qpage=api&noview=1&action=login
+
+RewriteRule ^$ index.php?qpage=login\/login&loginview=1
