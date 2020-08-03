@@ -60,7 +60,7 @@
   width: 100px;
   height: 50px;
   padding-top: 14px;
-  border-radius: 160px;"data-closed='true' class="chat-button btn btn-primary chat btn-lg"><i style="color:white;" class="fa fa-comments-o"></i> Chat</a>
+  border-radius: 160px;" class="chat-button btn btn-primary chat btn-lg"><i style="color:white;" class="fa fa-comments-o"></i> Chat</a>
   <div class="col-12">
     <div style="z-index:1;"class="card">
       <div class="card-header">

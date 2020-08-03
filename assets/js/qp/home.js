@@ -137,16 +137,17 @@ function update_posts(){
 
 $('.chat-button').click(function(){
   
-  var close = $(this).attr('data-closed')
-console.log(close)
-  if(close == 'true'){
-    $(".chat-card").show()
-    $(this).html('<i style="color:white;" class="fa fa-times"></i> Fechar</a>').show()
-    $(this).attr("data-closed",false)
+ 
+
+  if( $(".chat-card").is(":visible")){
+    $(".chat-card").fadeOut()
+    $(this).html('<i style="color:white;" class="fa fa-comments-o"></i> Chat</a>').fadeIn()
+   
+    
   }else {
-    $(".chat-card").hide()
-    $(this).html('<i style="color:white;" class="fa fa-comments-o"></i> Chat</a>').show()
-    $(this).attr("data-closed",true)
+    $(".chat-card").fadeIn()
+    $(this).html('<i style="color:white;" class="fa fa-times"></i> Fechar</a>').fadeIn()
+  
   }
  
 })
