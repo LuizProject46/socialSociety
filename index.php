@@ -1,4 +1,4 @@
-<?
+<?php
 
 require_once "configs/init.php";
 require_once "controllers/header.php";

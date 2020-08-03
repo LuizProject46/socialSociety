@@ -1,4 +1,4 @@
-<?
+<?php
 class Posts {
 
   public static function new($text,$id){
