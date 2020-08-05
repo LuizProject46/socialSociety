@@ -140,12 +140,12 @@ $('.chat-button').click(function(){
  
 
   if( $(".chat-card").is(":visible")){
-    $(".chat-card").fadeOut()
+    $(".chat-card").hide()
     $(this).html('<i style="color:white;" class="fa fa-comments-o"></i> Chat</a>').fadeIn()
    
     
   }else {
-    $(".chat-card").fadeIn()
+    $(".chat-card").show()
     $(this).html('<i style="color:white;" class="fa fa-times"></i> Fechar</a>').fadeIn()
   
   }
