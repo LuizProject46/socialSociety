@@ -12,7 +12,7 @@ Class Db {
 		$base = new PDO('mysql:host='. getenv('MYSQL_1_HOST') .';dbname='. getenv('SOCIAL_SOCIETY') .';port=3306', getenv('MYSQL_1_USER'), getenv('MYSQL_1_PASS'));
 		}
 		else {
-			$base = new PDO('mysql:host=db-mysql-nyc1-71694-do-user-7791880-0.a.db.ondigitalocean.com;dbname=socialSociety;port=25060', "doadmin", "e3opu5wtmmypuo9w");
+			$base = new PDO('mysql:host=localhost;dbname=socialSociety;', "admin", "e3opu5wtmmypuo9w");
 		}
 
 		if($base) {

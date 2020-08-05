@@ -20,5 +20,5 @@ while($file = $directories -> read()) {
 
 $directories->close();
 
-$ENV = '';
+$ENV = 'production';
 ?>
