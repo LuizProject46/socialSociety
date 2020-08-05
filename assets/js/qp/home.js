@@ -135,19 +135,22 @@ function update_posts(){
   })
 
 
-$('.chat-button').click(function(){
+$('.chat-button').click(function(e){
   
  
+    e.preventDefault();
+    el = $(".chat-card")
+    el.toggle()
 
   if( $(".chat-card").is(":visible")){
-    $(".chat-card").hide()
-    $(this).html('<i style="color:white;" class="fa fa-comments-o"></i> Chat</a>').fadeIn()
-   
+  //   $(".chat-card").hide()
     
-  }else {
-    $(".chat-card").show()
-    $(this).html('<i style="color:white;" class="fa fa-times"></i> Fechar</a>').fadeIn()
-  
+      $(this).html('<i style="color:white;" class="fa fa-times"></i> Fechar</a>').fadeIn()
+    
+   }else {
+  //   $(".chat-card").show()
+  //   
+      $(this).html('<i style="color:white;" class="fa fa-comments-o"></i> Chat</a>').fadeIn()
   }
  
 })

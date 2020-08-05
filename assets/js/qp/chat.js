@@ -6,7 +6,7 @@ exampleSocket.onopen = function(event) {
 
 const Name = window.user_name;
 const photo = window.user_photo
-console.log(photo)
+
 sendMessage = () => {
   let messageElem = document.getElementById("message");
   let textMessage = messageElem.value;

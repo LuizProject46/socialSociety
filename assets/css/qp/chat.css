@@ -109,9 +109,9 @@
 
 .bottom_wrapper {
   position: relative;
-  width: 483px;
+  width: 413px;
   background-color: #fff;
-  padding: 0px 22px;
+  padding: -2px 22px;
   position: absolute;
   bottom: 0;
   border-radius: -4px;

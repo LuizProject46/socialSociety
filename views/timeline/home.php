@@ -23,10 +23,11 @@
     z-index: 10000000;
     right: 1%;
     color: white;
-    width: 500px;
     height: 357px;
     padding-top: 14px;
     border-radius: 11px;
+    max-width: 430px;
+}
 }
 }
 </style>
