@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  
+ 
   $(".btn_publish").click(function(){
     var text = $(".input_post").val()
     if(text == ''){
@@ -27,6 +27,8 @@ $(document).ready(function(){
  
 
   })
+
+  
 
   $(document).on('click',".btn_delete",function (){
     var id = $(this).attr("data-posts")
@@ -161,3 +163,5 @@ update_posts()
 setInterval(()=>{
 update_posts()
 },10000)
+
+// Execute a function when the user releases a key on the keyboard

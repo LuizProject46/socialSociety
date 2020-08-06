@@ -27,6 +27,7 @@
     padding-top: 14px;
     border-radius: 11px;
     max-width: 430px;
+    flex: 1;
 }
 }
 }
@@ -43,7 +44,7 @@
               <div class="message_input_wrapper">
               <input class="message_input" id="message" placeholder="Type your message here..." />
               </div>
-            <div onclick="sendMessage();return false;" class="send_message">
+            <div onclick="sendMessage();return false;" class="send_message" onkeypress="sendMessage()">
             <button class="btn btn-primary btn-round  btn-fab"><i class="fa fa-paper-plane"></i></button>
            </div>
          </div>
