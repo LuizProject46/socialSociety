@@ -43,7 +43,7 @@ $(document).ready(function(){
           beforeSend: function(){
             html = `<li class="list-group-item list-people">
             <div class="row">
-              <i class="fa fa-spinner"></i>
+              Carregado <i class="fa fa-spinner"></i>
             </div>
           </li>`
           $(".list-group").html(html)
