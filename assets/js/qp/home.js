@@ -53,20 +53,26 @@ $(document).ready(function(){
               
                 var photo = ''
                 var html = ''
+                var perfil = ""
                 if(!value.photo){
                   photo = "../assets/img/user.png"
                 }else{
                   photo = "../uploads/"+value.photo
+                }
+                if(value.id == user_id){
+                  perfil = "perfil"
+                }else{
+                  perfil = "user/"+value.id
                 }
 
                
                 html += `<li id='${value.id}' class="list-group-item list-people">
                   <div class="row">
                     <div class="col-md-2">
-                      <img class="list-people-img"src="${photo}">
+                    <a href="${perfil}"><img class="list-people-img"src="${photo}"></a>
                     </div>
                     <div style='margin: 12px;' class="col-md-9">
-                      <h5>${value.name}</h5>
+                    <a href="${perfil}"><h5>${value.name}</h5></a>
                     </div>
                   </div>
                 </li>`
