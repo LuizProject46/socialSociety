@@ -50,7 +50,7 @@ $(document).ready(function(){
             if(data.length > 0){
               
               $.each(data,function(key,value){
-              
+                
                 var photo = ''
                 var html = ''
                 var perfil = ""
@@ -64,8 +64,12 @@ $(document).ready(function(){
                 }else{
                   perfil = "user/"+value.id
                 }
-
+                var urlLocal = `${window.location}`
+                if(urlLocal.indexOf("/user/") != -1){
+                 perfil = value.id
+                }
                
+                
                 html += `<li id='${value.id}' class="list-group-item list-people">
                   <div class="row">
                     <div class="col-md-2">
