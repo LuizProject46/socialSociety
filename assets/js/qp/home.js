@@ -28,7 +28,7 @@ $(document).ready(function(){
 
   })
 
-  $(".input-search").keyup(function(){
+  $(document).on('keyup',".input-search",function(){
 
       var text = $(this).val()
 
