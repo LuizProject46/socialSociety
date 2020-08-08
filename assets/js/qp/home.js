@@ -86,7 +86,7 @@ $(document).ready(function(){
                   </div>
                 </li>`
 
-                $(".list-group").html(html)
+                $(".list-peoples").html(html)
               })
             
 
@@ -98,7 +98,7 @@ $(document).ready(function(){
                 Nenhum resultado...
               </div>
             </li>`
-            $(".list-group").html(html)
+            $(".list-peoples").html(html)
             }
            
           }
@@ -170,15 +170,83 @@ function update_noti(){
       id: window.user_id
     },
     success: function (data){
-      console.log(data.length)
-      $(".noti-count").html(data.length)
+     console.log(data)
+      if(data != 0){
+        var notifications = data.rows[0]
+        var qtd_noti = data.rows[0].length
+        var html = ""
+        var cont = 0
+      
+      
+        $.each(notifications,function(key,value){
+          
+         var photo = value.photo == "" ? "../assets/img/user.png" : "../uploads/"+value.photo
+         var msg = value.type == "like_post" ? "curtiu a sua publicação.": "curtiu sua foto."
+          if(value.view == 0){
+            cont++
+            $(".noti-count").html(cont)
+            
+          }
+          html += `<li  class="list-group-item list-noti">
+          <div class="row">
+            <div class="col-md-2">
+            <a href="${url}/user/${value.id_user}"><img class="list-people-img"src="${photo}"></a>
+            </div>
+            <div style='margin: 12px;' class="col-md-9">
+            <label style="color:#333;"><strong>${value.name}</strong> ${msg}</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col d-flex justify-content-end">
+              <label><i class="fa fa-clock-o"></i> ${value.time}</label>
+            </div>
+          </div>
+        
+        </li>`
+  
+        $(".list-group-noti").html(html)
+
+       
+        })
+      }else{
+        html = `<li style="padding: 26px;
+        margin: auto;" class="list-group-item list-noti">
+        <div class="row">
+         
+          <p><i class="fa fa-info-circle"></i>  Nenhuma notificação no momento..</p>
+          
+         
+        </div>
+      </li>`
+      $(".list-group-noti").html(html)
+      }
+     
+     
     }
     
   })
 }
 
 $(document).on('click','.btn-noti',function(){
-  $(".noti-count").html('')
+ 
+  if(!$(".list-group-noti").is(":visible")){
+      $(".list-group-noti").toggle()
+  }else{
+    $(".list-group-noti").hide()
+  }
+  
+
+  $.ajax({
+    url: (window.url+"controllers/api"),
+    type: "POST",
+    data:{
+      action: "view_noti",
+      id: window.user_id
+    },
+    success: function (data){
+      $(".noti-count").html('')
+    }
+  })
 })
 function update_posts(){
 
@@ -264,6 +332,6 @@ update_posts()
 
 setInterval(()=>{
   update_noti()
-  },60000)
+  },10000)
 
 // Execute a function when the user releases a key on the keyboard

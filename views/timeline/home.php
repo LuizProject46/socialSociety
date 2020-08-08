@@ -42,8 +42,12 @@
 }
 }
 </style>
+<div class="div-search">
+<input class="input-search input-mobile" placeholder="Pesquisar usuários"/><a class="btn-search"><i style="color:white;"class="fa fa-search"></i></a>
+</div>
 
 <div style="margin-top: -54px;"class="row">
+
     <div style="display:none;" class="card chat-card">
        
         
@@ -74,7 +78,7 @@
   padding-top: 14px;
   border-radius: 160px;" class="chat-button btn btn-primary chat btn-lg"><i style="color:white;" class="fa fa-comments-o"></i> Chat</a>
   <div class="col-12">
-    <div style="z-index:1;"class="card">
+    <div style="z-index:1;"class="card card-publish">
       <div class="card-header">
         <h4 class="card-title">Publique algo aqui </h4>     
       </div>

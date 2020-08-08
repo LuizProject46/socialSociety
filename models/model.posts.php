@@ -56,12 +56,13 @@ class Posts {
   public static function like($id,$to,$from){
     $db = Db::connect();
 
-    $db->exec("INSERT INTO notifications(id_from,id_to,type) VALUES('$from','$to','like_photo')");
+    $db->exec("INSERT INTO notifications(id_from,id_to,type) VALUES('$from','$to','like_post')");
     $db->exec("UPDATE posts SET likes = likes + 1  WHERE id = '$id'");
 
     $sql = $db->query("SELECT likes FROM posts WHERE id = '$id' ");
     $posts = $sql->fetchAll(PDO::FETCH_ASSOC)[0];
 
+    
    
     return $posts[likes];
   }

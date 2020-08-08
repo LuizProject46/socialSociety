@@ -50,12 +50,54 @@ public static function search($text){
 public static function noti($id){
 
   $db = Db::connect();
-    
-    $sql = $db->query("SELECT * FROM notifications WHERE id_to ='$id' and view=0");
+    $res["rows"] = [];
+    $data = [];
+   
+    $sql = $db->query("SELECT * FROM notifications WHERE id_to ='$id' ORDER BY id DESC");
     $noti = $sql->fetchAll(PDO::FETCH_ASSOC);
- 
+   
+    foreach($noti as $n){
+     $aux = [];
+      
+      $aux[time] = date("H:i:s",strtotime($n[created_at]));
+      $aux[type] = $n[type];
+      $aux[id_noti]= $n[id];
+      $aux[view] =$n[view];
+      $sql = $db->query("SELECT * FROM user WHERE id='$n[id_from]'");
+      $user = $sql->fetchAll(PDO::FETCH_ASSOC);
+      foreach($user as $u){
+       
+       
+        $aux[name] = $u[name];
+        $aux[photo]= $u[photo];
+        $aux[id_user] = $u[id];
+       
+      }
+     
+      $data[] = $aux;
+    }
+
+   
     
-    return $noti;
+    
+   $res["rows"][] = $data;
+    
+   if(count($data) == 0){
+      return 0;
+   }else{
+      return $res;
+   }
+   
+}
+
+public static function notiView($id){
+  $db = Db::connect();
+ 
+ 
+   $db->query("UPDATE notifications SET view=1 WHERE id_to='$id'");
+
+  return 1;
+  
 }
 }
 

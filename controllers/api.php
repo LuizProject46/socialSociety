@@ -53,6 +53,10 @@ if($_POST[action] == "login"){
   $res = User::noti($_POST[id]);
 
   echo json_encode($res);
+}else if($_POST[action] == "view_noti"){
+  User::notiView($_POST[id]);
+
+  echo 1;
 }
 
 ?>

@@ -14,17 +14,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css"/>
   <link rel="stylesheet" href="../assets/css/qp/home.css"/>
 <style>
-.list-people {
-  border-bottom: 1px solid #efe7e7;
-}
-.list-people-img{
-  width: 44px;
-    height: 44px;
-    border: 2px solid purple;
-    border-radius: 39px;
-    padding-bottom: 0px;
-
-}
 
 </style>
 </head>
@@ -35,16 +24,11 @@
  window.user_photo = "<?=$_SESSION[user_photo]?>"
   </script>
 <body>
-<ul class="list-group" style="       z-index: 1000;
-    position: absolute;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 1px 1px 14px #777777;
-    left: 34%;
-    top: 10%;
-    width: 320px;
+<ul class="list-group list-peoples ul-search">
 
-">
+</ul>
+
+<ul  class="list-group list-group-noti ul-noti" >
 
 </ul>
 	<div class="card card-nav-tabs card-plain">
@@ -62,10 +46,11 @@
                     <!-- <li class="nav-item" style="margin-left:auto;">
                         <a style="font-size: 18px;"class="nav-link " href="<?=$site[url]?>timeline" ><i class="fa fa-comments-o"></i> <b>SocialSociety</b></a>
                     </li> -->
-                 
-                    <li class="nav-item" style="margin-left:auto;display:flex;align-items: baseline;">
+                   
+
+                    <li class="nav-item nav-info">
                     <a style="font-size: 22px;color:white;font-weight:bold;padding-top:3px;margin-right:18px;cursor:pointer;"class=" btn-noti"     ><i class="fa fa-bell"></i></a><label style="position: absolute;
-    margin-left: 16px;"class="badge badge-danger noti-count"></label>
+                      margin-left: 16px;"class="badge badge-danger noti-count"></label>
                     <div style="padding-top:10px;" class="dropdown">
                   
                       <a style="font-size: 18px;color:white;font-weight:bold;padding-top:3px;"class=" dropdown-toggle" id="dropdownMenuButton"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="<?=$site[url]?>timeline" ><img style="width:30px;height:30px;border-radius:50%;" src="<?=($_SESSION[user_photo] ? '../../uploads/'. $_SESSION[user_photo] : '../../assets/img/user.png')?>"/> <?=$username?></a>
@@ -76,8 +61,21 @@
                       </div>
                     </div>
                     </li>
-                   
+
+                    <!--MOBILE-->
+                    <li class="nav-info-mobile">
                     
+                   
+                      <div style="padding-top:10px;" class="dropdown">
+                    
+                      <a style="font-size: 24px;color:white;font-weight:bold;padding-top:3px;"class=" " id="dropdownMenuButton"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="<?=$site[url]?>timeline" ><i class="fa fa-bars"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="<?=$site[url]?>perfil"><i style="font-size:20px;padding:4px;"class="fa fa-cog"></i> Perfil</a>
+                          <a class="dropdown-item" href="<?=$site[url]?>logout"><i style="font-size:20px;padding:4px;"class="fa fa-sign-out"></i> Sair</a>
+                          
+                        </div>
+                      </div>
+                    </li>
                    
                 </ul>
             </div>

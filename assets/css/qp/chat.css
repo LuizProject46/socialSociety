@@ -129,7 +129,8 @@
   /* width: calc(100% - 160px); */
   position: relative;
   padding: 0 20px;
-  width: 89%;
+  width: 82%;
+  margin-left: 35px;
 }
 
 .bottom_wrapper .message_input_wrapper .message_input {
