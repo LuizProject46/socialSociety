@@ -48,7 +48,7 @@
     border-radius: 15px;
     box-shadow: 1px 1px 14px #777777;
     left: 34%;
-    top: 6%;
+    top: 10%;
     width: 320px;
 
 ">
