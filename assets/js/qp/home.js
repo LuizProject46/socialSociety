@@ -136,14 +136,16 @@ $(document).ready(function(){
 
   $(document).on('click',".btn_like",function(){
     var id = $(this).attr("data-like")
-    
+    var idTo = $(this).attr("data-user")
     $.ajax({
       url: (window.url+"controllers/api"),
       type: "POST",
       data:{
         action: "like_post",
         
-        id:id
+        id:id,
+        idFrom: window.user_id,
+        idTo: idTo 
 
       },
       success: function (data){
@@ -159,8 +161,25 @@ $(document).ready(function(){
   })
 })
 
+function update_noti(){
+  $.ajax({
+    url: (window.url+"controllers/api"),
+    type: "POST",
+    data:{
+      action: "get_noti",
+      id: window.user_id
+    },
+    success: function (data){
+      console.log(data.length)
+      $(".noti-count").html(data.length)
+    }
+    
+  })
+}
 
-
+$(document).on('click','.btn-noti',function(){
+  $(".noti-count").html('')
+})
 function update_posts(){
 
   $.ajax({
@@ -200,6 +219,7 @@ function update_posts(){
         
         
         clone.find(".btn_like").attr("data-like",value.id)
+        clone.find(".btn_like").attr("data-user",value.id_user)
         clone.find(".count_like").attr("id","count_like_"+value.id)
         clone.find(".count_like").html(`<b>${value.likes}</b>`)
         clone.show();
@@ -237,9 +257,13 @@ $('.chat-button').click(function(e){
 }
 
 update_posts()
-
+update_noti()
 setInterval(()=>{
 update_posts()
 },10000)
+
+setInterval(()=>{
+  update_noti()
+  },60000)
 
 // Execute a function when the user releases a key on the keyboard

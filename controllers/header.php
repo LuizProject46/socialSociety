@@ -14,7 +14,7 @@ if(getenv('APP_ENV') == "develop") {
   error_reporting( E_ALL & ~E_WARNING & ~E_NOTICE & ~E_DEPRECATED);
 }
 else{
-	$site[url] = "http://165.227.30.62/";
+	$site[url] = "http://lgmoliveira.com/";
 }
 
 

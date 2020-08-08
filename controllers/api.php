@@ -41,12 +41,16 @@ if($_POST[action] == "login"){
   echo $res;
 }else if($_POST[action] == "like_post"){
   
- $res = Posts::like($_POST[id]);
+ $res = Posts::like($_POST[id],$_POST[idTo],$_POST[idFrom]);
 
   echo $res;
 }else if($_POST[action] == 'search_user'){
 
   $res = User::search($_POST[text]);
+
+  echo json_encode($res);
+}else if($_POST[action] == 'get_noti'){
+  $res = User::noti($_POST[id]);
 
   echo json_encode($res);
 }

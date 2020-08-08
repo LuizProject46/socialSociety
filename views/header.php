@@ -62,7 +62,10 @@
                     <!-- <li class="nav-item" style="margin-left:auto;">
                         <a style="font-size: 18px;"class="nav-link " href="<?=$site[url]?>timeline" ><i class="fa fa-comments-o"></i> <b>SocialSociety</b></a>
                     </li> -->
-                    <li class="nav-item" style="margin-left:auto;">
+                 
+                    <li class="nav-item" style="margin-left:auto;display:flex;align-items: baseline;">
+                    <a style="font-size: 22px;color:white;font-weight:bold;padding-top:3px;margin-right:18px;cursor:pointer;"class=" btn-noti"     ><i class="fa fa-bell"></i></a><label style="position: absolute;
+    margin-left: 16px;"class="badge badge-danger noti-count"></label>
                     <div style="padding-top:10px;" class="dropdown">
                   
                       <a style="font-size: 18px;color:white;font-weight:bold;padding-top:3px;"class=" dropdown-toggle" id="dropdownMenuButton"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="<?=$site[url]?>timeline" ><img style="width:30px;height:30px;border-radius:50%;" src="<?=($_SESSION[user_photo] ? '../../uploads/'. $_SESSION[user_photo] : '../../assets/img/user.png')?>"/> <?=$username?></a>
@@ -73,6 +76,7 @@
                       </div>
                     </div>
                     </li>
+                   
                     
                    
                 </ul>

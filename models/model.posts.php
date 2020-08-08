@@ -53,9 +53,10 @@ class Posts {
     return 1;
   }
 
-  public static function like($id){
+  public static function like($id,$to,$from){
     $db = Db::connect();
 
+    $db->exec("INSERT INTO notifications(id_from,id_to,type) VALUES('$from','$to','like_photo')");
     $db->exec("UPDATE posts SET likes = likes + 1  WHERE id = '$id'");
 
     $sql = $db->query("SELECT likes FROM posts WHERE id = '$id' ");

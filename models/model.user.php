@@ -46,6 +46,17 @@ public static function search($text){
     
     return $user;
 }
+
+public static function noti($id){
+
+  $db = Db::connect();
+    
+    $sql = $db->query("SELECT * FROM notifications WHERE id_to ='$id' and view=0");
+    $noti = $sql->fetchAll(PDO::FETCH_ASSOC);
+ 
+    
+    return $noti;
+}
 }
 
 ?>
