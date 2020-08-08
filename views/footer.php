@@ -13,5 +13,6 @@
 <script src="../assets/js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="../assets/js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
+<script src="../../assets/js/qp/home.js"></script>
 </body>
 </html>

@@ -28,7 +28,70 @@ $(document).ready(function(){
 
   })
 
-  
+  $(".input-search").keyup(function(){
+
+      var text = $(this).val()
+
+      if(text != ""){
+        $.ajax({
+          url: (window.url+"controllers/api"),
+          type: "POST",
+          data:{
+            text:text,
+            action: "search_user"
+          },
+          // beforeSend: function(){
+            
+          // },
+
+          success: function (data){
+            
+             
+            if(data.length > 0){
+              
+              $.each(data,function(key,value){
+              
+                var photo = ''
+                var html = ''
+                if(!value.photo){
+                  photo = "../assets/img/user.png"
+                }else{
+                  photo = "../uploads/"+value.photo
+                }
+
+               
+                html += `<li id='${value.id}' class="list-group-item list-people">
+                  <div class="row">
+                    <div class="col-md-2">
+                      <img class="list-people-img"src="${photo}">
+                    </div>
+                    <div style='margin: 12px;' class="col-md-9">
+                      <h5>${value.name}</h5>
+                    </div>
+                  </div>
+                </li>`
+
+                $(".list-group").html(html)
+              })
+            
+
+               
+            }else{
+             
+              html = `<li class="list-group-item list-people">
+              <div class="row">
+                Nenhum resultado...
+              </div>
+            </li>`
+            $(".list-group").html(html)
+            }
+           
+          }
+        })
+      }else{
+        $(".list-group").html("")
+      }
+  })
 
   $(document).on('click',".btn_delete",function (){
     var id = $(this).attr("data-posts")

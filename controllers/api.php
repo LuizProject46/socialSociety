@@ -44,6 +44,11 @@ if($_POST[action] == "login"){
  $res = Posts::like($_POST[id]);
 
   echo $res;
+}else if($_POST[action] == 'search_user'){
+
+  $res = User::search($_POST[text]);
+
+  echo json_encode($res);
 }
 
 ?>

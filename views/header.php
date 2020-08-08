@@ -12,6 +12,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 	<link href="../assets/css/material-dashboard.min.css?v=2.1.2" type="text/css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css"/>
+  <link rel="stylesheet" href="../assets/css/qp/home.css"/>
+
 </head>
 <script>
   window.url = "<?=$site[url]?>"
@@ -30,6 +32,9 @@
                 	 <li class="nav-item">
                         <a style="font-size: 18px;"class="nav-link " href="<?=$site[url]?>timeline" ><i class="fa fa-comments-o"></i> <b>SocialSociety</b></a>
                     </li>
+                   <li style="margin:auto;" class="nav-item">
+                      <input class="input-search" placeholder="Pesquisar usuários"/>
+                   </li>
                     <!-- <li class="nav-item" style="margin-left:auto;">
                         <a style="font-size: 18px;"class="nav-link " href="<?=$site[url]?>timeline" ><i class="fa fa-comments-o"></i> <b>SocialSociety</b></a>
                     </li> -->
@@ -52,3 +57,5 @@
     </div>
 
   </div>
+
+  

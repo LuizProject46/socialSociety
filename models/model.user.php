@@ -35,6 +35,17 @@ public static function get($id){
 
     return $user;
 }
+
+public static function search($text){
+
+  $db = Db::connect();
+    
+    $sql = $db->query("SELECT * FROM user WHERE name LIKE '%$text%' ");
+    $user = $sql->fetchAll(PDO::FETCH_ASSOC);
+ 
+    
+    return $user;
+}
 }
 
 ?>

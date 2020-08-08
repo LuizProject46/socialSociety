@@ -109,12 +109,16 @@
 
 .bottom_wrapper {
   position: relative;
-  width: 413px;
+  width: 491px;
   background-color: #fff;
-  padding: -2px 22px;
+  padding: -1px 4px;
   position: absolute;
   bottom: 0;
   border-radius: -4px;
+  /* max-width: 421px; */
+  /* min-width: 373px; */
+  margin-left: -74px;
+  flex: 1;
 }
 
 .bottom_wrapper .message_input_wrapper {
@@ -132,10 +136,11 @@
   border: none;
   height: 100%;
   box-sizing: border-box;
-  width: calc(100% - 40px);
+  /* width: calc(100% - 40px); */
   position: absolute;
   outline-width: 0;
   color: gray;
+  /* max-width: 149px; */
 }
 
 .bottom_wrapper .send_message {

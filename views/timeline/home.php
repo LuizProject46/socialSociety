@@ -15,7 +15,17 @@
 .chat {
  
 }
-
+.list-people {
+  border-bottom: 1px solid #efe7e7;
+}
+.list-people-img{
+  width: 44px;
+    height: 44px;
+    border: 2px solid purple;
+    border-radius: 39px;
+    padding-bottom: 0px;
+}
+}
 .chat-card {
   position: fixed;
     top: 14%;
@@ -32,26 +42,37 @@
 }
 }
 </style>
+<ul class="list-group" style="       z-index: 1000;
+    position: absolute;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 1px 1px 14px #777777;
+    left: 34%;
+    top: 6%;
+    width: 320px;
 
+">
+
+</ul>
 <div style="margin-top: -54px;"class="row">
-<div style="display:none;" class="card chat-card">
+    <div style="display:none;" class="card chat-card">
        
         
-        <!-- <div class="chat_window"> -->
-              <h4 class="card-title">Chat</h4>
-              <ul class="messages" id="messagesBox"></ul>
-              <div class="bottom_wrapper clearfix">
-              <div class="message_input_wrapper">
-              <input class="message_input" id="message" placeholder="Type your message here..." />
-              </div>
-            <div onclick="sendMessage();return false;" class="send_message" onkeypress="sendMessage()">
-            <button class="btn btn-primary btn-round  btn-fab"><i class="fa fa-paper-plane"></i></button>
-           </div>
-         </div>
-       <!-- </div> -->
-        
+    <!-- <div class="chat_window"> -->
+          <h4 class="card-title">Chat</h4>
+          <ul class="messages" id="messagesBox"></ul>
+          <div class="bottom_wrapper clearfix">
+          <div class="message_input_wrapper">
+          <input class="message_input" id="message" placeholder="Type your message here..." />
+          </div>
+        <div onclick="sendMessage();return false;" class="send_message" onkeypress="sendMessage()">
+        <button class="btn btn-primary btn-round  btn-fab"><i class="fa fa-paper-plane"></i></button>
+        </div>
       </div>
+    <!-- </div> -->
+        
     </div>
+</div>
 <a style=" position: fixed;
   top: 86%;
   /* left: 1%; */
@@ -116,6 +137,6 @@
      
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-<script src="../../assets/js/qp/home.js"></script>
+
 <script src="../../assets/js/qp/chat.js"></script>
 
