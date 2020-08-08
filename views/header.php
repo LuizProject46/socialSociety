@@ -13,7 +13,20 @@
 	<link href="../assets/css/material-dashboard.min.css?v=2.1.2" type="text/css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css"/>
   <link rel="stylesheet" href="../assets/css/qp/home.css"/>
+<style>
+.list-people {
+  border-bottom: 1px solid #efe7e7;
+}
+.list-people-img{
+  width: 44px;
+    height: 44px;
+    border: 2px solid purple;
+    border-radius: 39px;
+    padding-bottom: 0px;
 
+}
+
+</style>
 </head>
 <script>
   window.url = "<?=$site[url]?>"
@@ -22,7 +35,18 @@
  window.user_photo = "<?=$_SESSION[user_photo]?>"
   </script>
 <body>
+<ul class="list-group" style="       z-index: 1000;
+    position: absolute;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 1px 1px 14px #777777;
+    left: 34%;
+    top: 10%;
+    width: 320px;
 
+">
+
+</ul>
 	<div class="card card-nav-tabs card-plain">
     <div class="card-header" style="background-color:#00e68a">
         <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->

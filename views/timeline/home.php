@@ -24,7 +24,7 @@
     border: 2px solid purple;
     border-radius: 39px;
     padding-bottom: 0px;
-}
+
 }
 .chat-card {
   position: fixed;
@@ -42,18 +42,7 @@
 }
 }
 </style>
-<ul class="list-group" style="       z-index: 1000;
-    position: absolute;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 1px 1px 14px #777777;
-    left: 34%;
-    top: 10%;
-    width: 320px;
 
-">
-
-</ul>
 <div style="margin-top: -54px;"class="row">
     <div style="display:none;" class="card chat-card">
        
