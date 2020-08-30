@@ -34,7 +34,7 @@
                 </form>
               </div>
 
-
+             
             </div>
             <div class="col-md-6">  
               <div class="form-group">
@@ -50,9 +50,10 @@
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Bio</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"><?=$_SESSION[user_bio]?></textarea>
-              </div>
+              </div> 
             
               <button type="button" class="btn btn-primary btn-update">Atualizar</button>
+              <button type="button" class="btn btn-danger btn-delete-account">Deletar conta</button>
             </div>
 
 

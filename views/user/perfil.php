@@ -23,28 +23,47 @@
   <div class="row">
     <div class="col-12">
       <div class="card">
-        <div style="display: flex;justify-content: center;" class="card-body">
-        
-          <?foreach($user as $u):?>
-            <div style="text-align:center;">
-                <img style="border: 2px solid purple;
-                border-radius: 50%;
-                width: 220px;
-                height: 220px;"src="<?=($u[photo] ? '../../uploads/'.$u[photo] : '../../assets/img/user.png')?>"/>
-                 
-                 <h2 class="card-title"><?=$u[name]?></h2>
-                 <div style="width: 450px;word-break: break-all;">
-                    <h4 class="category"><?=$u[bio]?></h4>
-                 </div>
-                 
-                 <h4 class="category"><i style="color:purple;" class="fa fa-envelope"></i> <?=$u[email]?></h4>
-            </div>
-           
+      <div class="card-body">
+        <?foreach($user as $u):?>
+									<img style="<?=(!$u[photo] ? 'border: solid 1px #333;' : ''  )?>" src="<?=($u[photo] ? '../../uploads/'.$u[photo] : '../../assets/img/user.png')?>" alt="image" class="img-lg rounded-circle mb-2">
+									<h4><?=$u[name]?></h4>
+									<p class="text-muted">Entrou em <?=date("d/m/Y",strtotime($u[created_at]))?></p>
+									<p class="mt-4 card-text">
+                      <?=$u[bio]?>
+                  </p>
+                  
+                  <?if($following[id_user] == $u[id]):?>
+                    <button data-id="<?=$u[id]?>" style="background-color:#00e68a;" class="btn btn-follow  btn-sm mt-3 mb-4">
+                    <i class="fa fa-check"></i> 
+                    Seguindo
+                    </button>
+                  <?else:?>
+                    <button data-id="<?=$u[id]?>" class="btn btn-follow btn-primary btn-sm mt-3 mb-4">
+                    <i class="fa fa-plus"></i> 
+                    Seguir
+                  </button>
+                   
+                  <?endif;?> 
+                  
+									<div class="border-top pt-3">
+										<div class="row">
+											<div class="col-4">
+												<h6><?=(count($posts) > 0 ? count($posts) : '0')?></h6>
+												<p>Posts</p>
+											</div>
+											<div class="col-4">
+												<h6><?=($u[followers] == 0 ? '0' : $u[followers])?></h6>
+												<p>Seguidores</p>
+											</div>
+											<div class="col-4">
+												<h6>7896</h6>
+												<p>Likes</p>
+											</div>
+										</div>
+									</div>
+								</div>
           <?endforeach;?>
-          
-        
-        
-        </div>
+      
       
       </div>
     
@@ -57,7 +76,7 @@
       <h4><i style="color:#fff;" class="fa fa-info-circle"></i> <?=$user[0][name]?> não possui nenhuma publicação no momento...</h4>
     </div>
   <?else:?>
-    <div class="row">
+    <div style="margin-top: -42px;" class="row">
     <div class="col-12">
 
       <div class="card">
@@ -83,10 +102,10 @@
               </div>
               <div class="card-footer">
                 <div class="stats">
-                  <button class="btn btn-primary btn-fab btn-fab-mini btn-round btn_like">
+                  <button data-like="<?=$p[id]?>"data-user="<?=$user[0][id]?>" class="btn btn-primary btn-fab btn-fab-mini btn-round btn_like">
                     <i class="fa fa-heart"></i>
                   </button>
-                  <label class="count_like" style="font-size:18px;"><?=$p[likes]?></label>
+                  <label id="count_like_<?=$p[id]?>"class="count_like" style="font-size:18px;"><?=$p[likes]?></label>
                 </div>
               </div>
 

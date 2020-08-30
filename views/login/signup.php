@@ -114,7 +114,7 @@ a:hover{
 			<input type="text" name="email" placeholder="Email">
 			<input type="password" name="password" placeholder="Senha">
 			<button class="btn-signup"><i class="fa fa-sign-in"></i> Cadastrar</button>
-			
+      <a href="signin">Já tem uma conta? acesse aqui!</a>
 		</form>
 	</div>
   <!-- <script src="../../node_modules/sweetalert2/dist/sweetalert2.min.js"></script> -->

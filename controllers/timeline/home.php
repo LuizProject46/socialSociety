@@ -4,6 +4,7 @@ if($_SESSION[user_id] == null){
   exit;
 }
 
+$verify[first_time] = User::firstTime($_SESSION[user_id]);
 
 
 ?>

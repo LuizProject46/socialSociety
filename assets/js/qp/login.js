@@ -22,6 +22,7 @@ $(".btn-login").click(function(){
         action: "login"
       },
       success: function (data){
+        console.log(data)
         if(data){
           swal({title:"Sucesso!",text:"Logado com sucesso!",type: "success"}).then(()=>{
             window.location.href = window.url +"timeline"
@@ -59,6 +60,7 @@ $(".btn-signup").click(function(){
         action: "register"
       },
       success: function (data){
+        console.log(data)
         if(data){
           swal({title:"Sucesso!",text:"Cadastro feito com sucesso.",type: "success"}).then(()=>{
             window.location.href = window.url +"signin"

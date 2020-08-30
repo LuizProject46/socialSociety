@@ -32,8 +32,8 @@ $(document).ready(function (){
     var name = $("#exampleFormControlInput1").val()
     var email = $("#exampleFormControlInput2").val()
     var bio = $("#exampleFormControlTextarea1").val()
-    console.log(email)
-    if(name == "" || email == ""){
+    
+    if(name == "" || email == "" || bio == ""){
       swal({title:"Ops!",text:"Os campos email e nome não pode ser vazios ",type: "warning"})
     }else{
       $.ajax({

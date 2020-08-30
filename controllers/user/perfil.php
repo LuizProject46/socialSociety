@@ -9,5 +9,8 @@ $user = User::get($_GET[id]);
 
 $posts = Posts::get($_GET[id]);
 
+$following = User::verifyFollow($_SESSION[user_id]);
+
+
 
 ?>

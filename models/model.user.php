@@ -59,7 +59,7 @@ public static function noti($id){
     foreach($noti as $n){
      $aux = [];
       
-      $aux[time] = date("H:i:s",strtotime($n[created_at]));
+      $aux[time] = date("H:i",strtotime($n[created_at]));
       $aux[type] = $n[type];
       $aux[id_noti]= $n[id];
       $aux[view] =$n[view];
@@ -98,6 +98,56 @@ public static function notiView($id){
 
   return 1;
   
+}
+
+public static function delete($id){
+  $db = Db::connect();
+ 
+   $db->exec("DELETE  FROM posts WHERE id_user='$id'");
+   $db->exec("DELETE  FROM user WHERE id='$id'");
+    
+   $_SESSION[user_id] = null;
+   $_SESSION[user_name] = null;
+   $_SESSION[user_photo] = null;
+   $_SESSION[user_email] = null;
+   $_SESSION[user_bio] = null;
+
+  return 1;
+  
+}
+
+
+public static function firstTime($id){
+
+  $db = Db::connect();
+   
+   
+    $sql = $db->query("SELECT first_time FROM user WHERE id ='$id'");
+    $res = $sql->fetchAll(PDO::FETCH_ASSOC)[0];
+    foreach($res as $r){
+      $result = $r;
+    }
+    return $result;
+}
+
+public static function follow($id_user,$id_from){
+  $db = Db::connect();
+
+  $db->exec("INSERT INTO followers(id_following,id_user) VALUES('$id_from','$id_user')");
+  $db->exec(" UPDATE user SET followers= followers + 1 WHERE id='$id_user'");
+  return 1;
+
+}
+
+public static function verifyFollow($id_from){
+  $db = Db::connect();
+   
+   
+  $sql = $db->query("SELECT * FROM followers WHERE id_following='$id_from'");
+  $res = $sql->fetchAll(PDO::FETCH_ASSOC)[0];
+
+  return $res;
+
 }
 }
 

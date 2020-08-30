@@ -30,3 +30,5 @@ RewriteRule ^controllers/api$ index.php?qpage=api&noview=1
 RewriteRule ^api/login$ index.php?qpage=api&noview=1&action=login
 
 RewriteRule ^$ index.php?qpage=login\/login&loginview=1
+#ERROR PAGE
+ErrorDocument 404 /views/404.php

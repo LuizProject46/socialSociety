@@ -1,3 +1,5 @@
+
+
 $(document).ready(function(){
  
   $(".btn_publish").click(function(){
@@ -137,6 +139,9 @@ $(document).ready(function(){
   $(document).on('click',".btn_like",function(){
     var id = $(this).attr("data-like")
     var idTo = $(this).attr("data-user")
+    if(idTo == window.user_id){
+      return false;
+    }
     $.ajax({
       url: (window.url+"controllers/api"),
       type: "POST",
@@ -170,7 +175,7 @@ function update_noti(){
       id: window.user_id
     },
     success: function (data){
-     console.log(data)
+     
       if(data != 0){
         var notifications = data.rows[0]
         var qtd_noti = data.rows[0].length
@@ -180,45 +185,52 @@ function update_noti(){
       
         $.each(notifications,function(key,value){
           
-         var photo = value.photo == "" ? "../assets/img/user.png" : "../uploads/"+value.photo
+         var photo = value.photo == undefined ? "../assets/img/user.png" : "../uploads/"+value.photo
          var msg = value.type == "like_post" ? "curtiu a sua publicação.": "curtiu sua foto."
           if(value.view == 0){
             cont++
-            $(".noti-count").html(cont)
+            $(".count-noti").html(cont)
             
           }
-          html += `<li  class="list-group-item list-noti">
-          <div class="row">
-            <div class="col-md-2">
-            <a href="${url}/user/${value.id_user}"><img class="list-people-img"src="${photo}"></a>
-            </div>
-            <div style='margin: 12px;' class="col-md-9">
-            <label style="color:#333;"><strong>${value.name}</strong> ${msg}</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col d-flex justify-content-end">
-              <label><i class="fa fa-clock-o"></i> ${value.time}</label>
-            </div>
-          </div>
+         
+         
+          url_perfil = value.id_user  ? url + "user/"+value.id_user : ''
+        html += `
         
-        </li>`
+        <div class="dropdown-divider"></div>
+        <a  href="${url_perfil}" class="dropdown-item preview-item">
+          <div  class="preview-thumbnail">
+            <div style="margin-top:-40px;"class="preview-icon ">
+              <img class="list-people-img"src="${photo}">
+            </div>
+          </div>
+          <div class="preview-item-content">
+            <h6 class="preview-subject font-weight-medium"><strong>${value.name}</strong></h6>
+            <p class="font-weight-light small-text">
+            ${msg}
+            </p>
+            <div class="row">
+            <div class="col d-flex justify-content-end">
+              <label> ${value.time}</label>
+            </div>
+          </div>
+          </div>
+        </a>`
   
-        $(".list-group-noti").html(html)
+        $(".noti-div").html(html)
 
        
         })
       }else{
-        html = `<li style="padding: 26px;
-        margin: auto;" class="list-group-item list-noti">
-        <div class="row">
-         
-          <p><i class="fa fa-info-circle"></i>  Nenhuma notificação no momento..</p>
-          
-         
-        </div>
-      </li>`
-      $(".list-group-noti").html(html)
+        html = `
+      
+        <div class="dropdown-divider"></div>
+        <a   class="dropdown-item preview-item">
+          <div class="">Nenhuma notificação no momento....</div>
+          </div>
+        </a>`
+
+      $(".noti-div").html(html)
       }
      
      
@@ -244,7 +256,7 @@ $(document).on('click','.btn-noti',function(){
       id: window.user_id
     },
     success: function (data){
-      $(".noti-count").html('')
+      $(".count-noti").html('')
     }
   })
 })
@@ -257,8 +269,10 @@ function update_posts(){
       action: "get_post",
     },
     success: function (data){
-      var post = data.rows
+     
       
+     if(data){
+      var post = data.rows
       $(".posts-clone").html("");
      
       $.each(post,function(key,value){
@@ -293,36 +307,90 @@ function update_posts(){
         clone.show();
         //clone.attr("style","display:flex");
 
-        $(".posts-clone").append(clone);
+        $(".posts-clone").append(clone)
 
       })
 
-
+    }else{
+      $(".posts-clone").html("<div class='alert text-center'>Nenhuma publicação do momento....</div>");
+    }
 
     }
   })
 
-
+$(document).on("click",".btn-delete-account",function(){
+  swal({
+    title:"Atenção!",
+    text: "Você tem certeza que quer excluir a sua conta? Todos seus dados serão removidos!",
+    type: "warning",
+    confirmButtonText:
+    'Ok',
+    showCancelButton: true,
+    showCloseButton: true,
+    
+  }).then(()=>{
+    $.ajax({
+      url: (window.url+"controllers/api"),
+    type: "POST",
+    data:{
+      action: "delete_account",
+      id: window.user_id
+    },
+    success: function (data){
+      swal({
+        title:"Sucesso!",
+        text: "Conta deletada com sucess. Obrigado por ter feito parte da nossa comunidade, volte sempre :)",
+        type: "success",
+        confirmButtonText:
+        'Ok',
+      
+        
+      }).then(()=>{
+        window.location.href = url
+      })
+    },
+    error: function (data){
+      swal("Ops", "Houve algum erro, tente novamente mais tarde!","error")
+    }
+    })
+  })
+})
 $('.chat-button').click(function(e){
   
- 
-    e.preventDefault();
-    el = $(".chat-card")
-    el.toggle()
+
 
   if( $(".chat-card").is(":visible")){
-  //   $(".chat-card").hide()
+     $(".chat-card").hide()
     
       $(this).html('<i style="color:white;" class="fa fa-times"></i> Fechar</a>').fadeIn()
     
    }else {
-  //   $(".chat-card").show()
+     $(".chat-card").toggle()
   //   
       $(this).html('<i style="color:white;" class="fa fa-comments-o"></i> Chat</a>').fadeIn()
   }
  
 })
 }
+
+$(document).on("click",".btn-follow",function(){
+  id_user = $(this).attr("data-id")
+  text = $(this).html()
+  console.log(text)
+  // if(text != '<i class="fa fa-check"></i> Seguindo'){
+    $.post(window.url + "controllers/api",{action: "follow",id_user: id_user,id_from: window.user_id}).done(function (data){
+    
+      $(".btn-follow").removeClass("btn-primary")
+      $(".btn-follow").addClass("btn-success")
+      $(".btn-follow").css("background-color"," #00e68a")
+     
+      $(".btn-follow").html("<i class='fa fa-check'></i> Seguindo")
+    })
+  //}
+ 
+
+})
+
 
 update_posts()
 update_noti()

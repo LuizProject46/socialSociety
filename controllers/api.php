@@ -57,6 +57,17 @@ if($_POST[action] == "login"){
   User::notiView($_POST[id]);
 
   echo 1;
+}else if($_POST[action] == "delete_account"){
+
+  User::delete($_POST[id]);
+
+  echo 1;
+
+}elseif($_POST[action] == "follow"){
+
+  User::follow($_POST[id_user],$_POST[id_from]);
+
+  echo 1;
 }
 
 ?>
