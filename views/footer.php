@@ -25,5 +25,16 @@
   <!-- inject:js -->
   
 <script src="../../assets/js/qp/home.js"></script>
+<script>
+
+  $(document).ready(function(){
+    'use strict';
+  function showCompactMenu() {
+    $('body').addClass('sidebar-mini');
+  }
+
+  })
+ 
+  </script>
 </body>
 </html>

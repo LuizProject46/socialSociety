@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css"/>
   <link rel="stylesheet" href="../assets/css/qp/home.css"/>
   <link rel="stylesheet" href="../assets/css/qp/styleVictory.css"/>
-  <!-- <link rel="stylesheet" href="../node_modules/mdi/css/materialdesignicons.min.css"> -->
+  <link rel="stylesheet" href="../node_modules/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../node_modules/simple-line-icons/css/simple-line-icons.css">
   <link rel="stylesheet" href="../node_modules/flag-icon-css/css/flag-icon.min.css">
   <link rel="stylesheet" href="../node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css">
@@ -122,7 +122,7 @@
     
           <a style="font-size: 18px;color:white;font-weight:bold;padding-top:3px;"class=" dropdown-toggle" id="dropdownMenuButton"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="<?=$site[url]?>timeline" ><img style="width:30px;height:30px;border-radius:50%;" src="<?=($_SESSION[user_photo] ? '../../uploads/'. $_SESSION[user_photo] : '../../assets/img/user.png')?>"/> <?=$username?></a>
           <div style="overflow-y: auto;
-    max-height: 308px;"class="dropdown-menu dropdown-menu-right  navbar-dropdown preview-list " aria-labelledby="notificationDropdown">
+    max-height: 150px;"class="dropdown-menu dropdown-menu-right  navbar-dropdown preview-list " aria-labelledby="notificationDropdown">
                  <a class="dropdown-item" href="<?=$site[url]?>perfil"><i style="font-size:20px;padding:4px;"class="fa fa-cog"></i> Perfil</a>
                         <a class="dropdown-item" href="<?=$site[url]?>logout"><i style="font-size:20px;padding:4px;"class="fa fa-sign-out"></i> Sair</a> 
                   
@@ -131,19 +131,11 @@
           </li>
           
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+        <button class="navbar-toggler navbar-toggler-right  d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="icon-menu"></span>
         </button>
+        
       </div>
     </nav>
 
-  <script>
-
-(function($) {
-  'use strict';
-  function showCompactMenu() {
-    $('body').addClass('sidebar-mini');
-  }
-})(jQuery);
-
-  </script>
+   

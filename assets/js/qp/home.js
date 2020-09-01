@@ -198,7 +198,7 @@ function update_noti(){
         html += `
         
         <div class="dropdown-divider"></div>
-        <a  href="${url_perfil}" class="dropdown-item preview-item">
+        <a  href="${url_perfil}" class="dropdown-item noti-item preview-item">
           <div  class="preview-thumbnail">
             <div style="margin-top:-40px;"class="preview-icon ">
               <img class="list-people-img"src="${photo}">

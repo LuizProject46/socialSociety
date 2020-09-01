@@ -148,7 +148,7 @@ public static function verifyFollow($id_from){
 
   return $res;
 
-}
+} 
 }
 
 ?>

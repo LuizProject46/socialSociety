@@ -39,8 +39,7 @@
     max-width: 430px;
     flex: 1;
 }
-}
-}
+
 </style>
 
 <div style="margin-top: 54px;"class="row">
