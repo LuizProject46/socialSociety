@@ -31,8 +31,8 @@
 									<p class="mt-4 card-text">
                       <?=$u[bio]?>
                   </p>
-                  <?var_dump($following)?>
-                  <?if($following[id_user] == $u[id]):?>
+                 
+                  <?if(in_array($u[id],$following)):?>
                     <button data-id="<?=$u[id]?>" style="background-color:#00e68a;" class="btn btn-follow  btn-sm mt-3 mb-4">
                     <i class="fa fa-check"></i> 
                     Seguindo

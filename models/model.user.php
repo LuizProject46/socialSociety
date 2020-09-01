@@ -144,9 +144,12 @@ public static function verifyFollow($id_from){
    
    
   $sql = $db->query("SELECT * FROM followers WHERE id_following='$id_from'");
-  $res = $sql->fetchAll(PDO::FETCH_ASSOC)[0];
-
-  return $res;
+  $res = $sql->fetchAll(PDO::FETCH_ASSOC);
+  $array = [];
+  foreach($res as $r){
+    $array[] = $r[id_user];
+  }
+  return $array;
 
 } 
 }
