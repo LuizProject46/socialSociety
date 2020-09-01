@@ -32,7 +32,7 @@
     "icheck": "1.0.2",
     "inputmask": "3.3.7",
     "ion-rangeslider": "^2.2.0",
-    "jquery": "3.2.1",
+    "jquery": "3.5.0",
     "jquery-asColorPicker": "0.4.3",
     "jquery-bar-rating": "1.2.2",
     "jquery-contextmenu": "2.5.0",
@@ -72,7 +72,7 @@
     "summernote": "0.8.8",
     "sweetalert2": "6.6.6",
     "ti-icons": "^0.1.2",
-    "tinymce": "4.6.4",
+    "tinymce": "4.9.11",
     "twbs-pagination": "1.4.1",
     "typeahead.js": "^0.11.1",
     "x-editable": "^1.5.1"
