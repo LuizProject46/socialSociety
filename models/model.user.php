@@ -133,9 +133,15 @@ public static function firstTime($id){
 public static function follow($id_user,$id_from){
   $db = Db::connect();
 
-  $db->exec("INSERT INTO followers(id_following,id_user) VALUES('$id_from','$id_user')");
-  $db->exec(" UPDATE user SET followers= followers + 1 WHERE id='$id_user'");
-  return 1;
+  $sql = $db->query("SELECT * FROM followers  WHERE id_following='$id_from' AND id_user='$id_user'");
+  $res = $sql->fetchAll(PDO::FETCH_ASSOC)[0];
+  
+  if(count($res) == 0){
+    $db->exec("INSERT INTO followers(id_following,id_user) VALUES('$id_from','$id_user')");
+    $db->exec(" UPDATE user SET followers= followers + 1 WHERE id='$id_user'");
+    return 1;
+  }
+ 
 
 }
 

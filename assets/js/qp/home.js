@@ -1,5 +1,6 @@
 
 
+
 $(document).ready(function(){
  
   $(".btn_publish").click(function(){
@@ -52,14 +53,14 @@ $(document).ready(function(){
           // },
 
           success: function (data){
-            
-             
+            var html = ''
+             console.log(data)
             if(data.length > 0){
               
               $.each(data,function(key,value){
                 
                 var photo = ''
-                var html = ''
+                
                 var perfil = ""
                 if(!value.photo){
                   photo = "../assets/img/user.png"
@@ -86,27 +87,31 @@ $(document).ready(function(){
                     <a href="${perfil}"><h5>${value.name}</h5></a>
                     </div>
                   </div>
-                </li>`
-
-                $(".list-peoples").html(html)
+                </li><hr>`
+               
+                $(".div-people").show()
+                $(".div-people").html(html)
+                
               })
             
 
                
             }else{
-             
+            
               html = `<li class="list-group-item list-people">
               <div class="row">
-                Nenhum resultado...
+                <p>Nenhum resultado...</p>
               </div>
             </li>`
-            $(".list-peoples").html(html)
+            $(".div-people").show()
+            $(".div-people").html(html)
             }
            
           }
         })
       }else{
-        $(".list-group").html("")
+        $(".div-people").html("")
+        $(".div-people").hide()
       }
   })
 
@@ -276,7 +281,8 @@ function update_posts(){
       $(".posts-clone").html("");
      
       $.each(post,function(key,value){
-      
+        
+      if(value.id_following.includes(window.user_id) || window.user_id == value.id_user){
         var clone = $(".posts").clone();
         clone.attr("id", value.id)
         clone.removeClass("posts")
@@ -306,8 +312,13 @@ function update_posts(){
         clone.find(".count_like").html(`<b>${value.likes}</b>`)
         clone.show();
         //clone.attr("style","display:flex");
-
+          
         $(".posts-clone").append(clone)
+      }else{
+        $(".posts-clone").html("<div class='alert text-center'>Nenhuma publicação do momento....</div>");
+        return false;
+      }
+        
 
       })
 

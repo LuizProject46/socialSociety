@@ -55,10 +55,7 @@
 												<h6><?=($u[followers] == 0 ? '0' : $u[followers])?></h6>
 												<p>Seguidores</p>
 											</div>
-											<div class="col-4">
-												<h6>7896</h6>
-												<p>Likes</p>
-											</div>
+										
 										</div>
 									</div>
 								</div>

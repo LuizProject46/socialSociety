@@ -11,14 +11,20 @@ class Posts {
 
   public static function getPosts(){
     $db = Db::connect();
-    
+    $array_following = [];
     $sql = $db->query("SELECT * FROM posts ORDER BY id DESC ");
     $posts = $sql->fetchAll(PDO::FETCH_ASSOC);
     foreach($posts as $p){
       
       $sql2 = $db->query("SELECT * FROM user WHERE id ='$p[id_user]' ");
+      $query = $db->query("SELECT * FROM followers WHERE id_user='$p[id_user]'");      
+      
       $user = $sql2->fetchAll(PDO::FETCH_ASSOC)[0];
-
+      $user_following = $query->fetchAll(PDO::FETCH_ASSOC);
+      foreach($user_following as $u){
+        $array_following[] =  $u[id_following];
+       
+      }
       $data[id] = $p[id];
       $data[id_user] = $p[id_user];
       $data[text] = $p[description];
@@ -27,6 +33,7 @@ class Posts {
       $data[date] = $p[created_at];
       $data[name] = $user[name];
       $data[user_photo] = $user[photo];
+      $data[id_following] = $array_following;
       $return["rows"][] = $data;
 
     }

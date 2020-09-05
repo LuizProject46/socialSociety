@@ -138,7 +138,7 @@ a:hover{
       </div>
         <input style=" margin-top: 20px;
   border: 1px solid #ddd;
-  height: 45px;
+  height: auto;
   padding: 0 20px;
   font-size: 15px;
   border-radius: 7px;

@@ -137,8 +137,9 @@
       <form  method="POST" enctype="multipart/form-data">
         <div class="modal-body">
           
-            <input name='imagem'type="file" class="btn "/>
-            
+           
+        <input type="file" name="imagem"class="dropify" />
+              
         
         </div>
         <div class="modal-footer">
@@ -151,3 +152,4 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="../../assets/js/qp/perfil.js"></script>
+

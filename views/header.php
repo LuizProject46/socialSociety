@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="../node_modules/simple-line-icons/css/simple-line-icons.css">
   <link rel="stylesheet" href="../node_modules/flag-icon-css/css/flag-icon.min.css">
   <link rel="stylesheet" href="../node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css">
+  <link rel="stylesheet" href="../node_modules/dropify/dist/css/dropify.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <link href="../assets/css/material-dashboard.min.css?v=2.1.2" type="text/css" rel="stylesheet" />
 <style>
@@ -33,9 +34,7 @@
   </script>
 <body>
 
-<!-- <ul class="list-group list-peoples ul-search">
-
-</ul>
+<!-- 
 
 <ul  class="list-group list-group-noti ul-noti" >
 
@@ -49,9 +48,7 @@
                 	 <li class="nav-item">
                         <a style="font-size: 18px;"class="nav-link " href="<?=$site[url]?>timeline" ><i class="fa fa-comments-o"></i> <b>SocialSociety</b></a>
                     </li>
-                   <li style="margin:auto;" class="nav-item">
-                      <input class="input-search" placeholder="Pesquisar usuários"/>
-                   </li>
+                  
                     
                    
 
@@ -102,7 +99,17 @@
       <div class="navbar-menu-wrapper d-flex align-items-center">
         
         <ul class="navbar-nav navbar-nav-right">
-         
+          <li style="margin:auto;" class="nav-item">
+            <input class="input-search" placeholder="Pesquisar usuários"/>
+            <div class="div-people" style="width: 333px;
+            background: #fff;
+            height: 10px;
+            
+            display:none;
+            margin: 0 auto;
+            border-radius: 4px;"></div>
+          </li>
+        
           <li class="nav-item dropdown">
             <a class="nav-link  btn-noti count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <i class="fa fa-bell-o mx-0"></i>

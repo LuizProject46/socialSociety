@@ -19,6 +19,7 @@
   <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
   <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="../node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>
+  <script src="../node_modules/dropify/dist/js/dropify.min.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->
   <!-- End plugin js for this page-->
@@ -32,7 +33,7 @@
   function showCompactMenu() {
     $('body').addClass('sidebar-mini');
   }
-
+  $('.dropify').dropify();
   })
  
   </script>
