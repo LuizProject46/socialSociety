@@ -22,7 +22,8 @@ class Posts {
       $user = $sql2->fetchAll(PDO::FETCH_ASSOC)[0];
       $user_following = $query->fetchAll(PDO::FETCH_ASSOC);
       foreach($user_following as $u){
-        $array_following[] =  $u[id_following];
+        if(!in_array($u[id_following],$array_following))
+          $array_following[] =  $u[id_following];
        
       }
       $data[id] = $p[id];

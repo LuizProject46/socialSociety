@@ -54,7 +54,7 @@ $(document).ready(function(){
 
           success: function (data){
             var html = ''
-             console.log(data)
+            
             if(data.length > 0){
               
               $.each(data,function(key,value){
@@ -281,7 +281,7 @@ function update_posts(){
       $(".posts-clone").html("");
      
       $.each(post,function(key,value){
-        
+       
       if(value.id_following.includes(window.user_id) || window.user_id == value.id_user){
         var clone = $(".posts").clone();
         clone.attr("id", value.id)
@@ -387,7 +387,7 @@ $('.chat-button').click(function(e){
 $(document).on("click",".btn-follow",function(){
   id_user = $(this).attr("data-id")
   text = $(this).html()
-  console.log(text)
+  
   // if(text != '<i class="fa fa-check"></i> Seguindo'){
     $.post(window.url + "controllers/api",{action: "follow",id_user: id_user,id_from: window.user_id}).done(function (data){
     
