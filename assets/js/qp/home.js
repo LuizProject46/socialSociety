@@ -279,11 +279,11 @@ function update_posts(){
      if(data){
       var post = data.rows
       $(".posts-clone").html("");
-      console.log(value.id_following)
+     
+      $.each(post,function(key,value){
+        console.log(value.id_following)
       console.log(window.user_id)
       console.log(value.id_following.includes(window.user_id))
-      $.each(post,function(key,value){
-       
       if(value.id_following.includes(window.user_id) || window.user_id == value.id_user){
         var clone = $(".posts").clone();
         clone.attr("id", value.id)
