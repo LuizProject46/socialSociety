@@ -282,6 +282,7 @@ function update_posts(){
      
       $.each(post,function(key,value){
         console.log(value.id_following)
+        console.log(value.id_user)
       console.log(window.user_id)
       console.log(value.id_following.includes(window.user_id))
       if(value.id_following.includes(window.user_id) || window.user_id == value.id_user){
